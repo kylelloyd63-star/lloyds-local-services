@@ -57,7 +57,7 @@
   .btn-ghost{border:1px solid var(--line);color:var(--ivory);background:var(--bg2)}
   .btn-ghost:hover{border-color:var(--green)}
 
-  h3.sec{font-size:24px;font-weight:800;margin-bottom:8px}
+  .sec{font-size:24px;font-weight:800;margin-bottom:8px}
   p.secsub{color:var(--muted);margin-bottom:28px;max-width:640px}
 
   /* cards — locked 2x2 on desktop, 1 column on small screens */
@@ -65,7 +65,7 @@
   @media(max-width:640px){.cards{grid-template-columns:1fr}}
   .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px}
   .card .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--green-tx);border:1px solid var(--green-dk);border-radius:20px;padding:3px 12px;margin-bottom:12px}
-  .card h4{font-size:18px;margin-bottom:8px}
+  .card h3{font-size:18px;margin-bottom:8px}
   .card p{font-size:15px;color:var(--muted)}
   .card p strong{color:var(--ivory);font-weight:600}
   .card .fine{font-size:13px;margin-top:10px;color:var(--green-tx)}
@@ -89,7 +89,7 @@
 
   /* contact */
   .contact{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:36px 28px;margin-top:8px}
-  .contact h3.sec{font-size:26px}
+  .contact .sec{font-size:26px}
   .thanks{display:none;background:var(--green-dk);border-radius:10px;padding:18px 22px;margin-top:24px;font-size:16px}
   .thanks.show{display:block}
   form{display:grid;gap:14px;margin-top:24px}
@@ -129,15 +129,15 @@
 <!-- tab bar -->
 <nav class="tabbar" aria-label="Site sections">
   <div class="wrap" role="tablist">
-    <button class="tab" role="tab" data-tab="home" aria-selected="true">Home</button>
-    <button class="tab" role="tab" data-tab="services" aria-selected="false">Services</button>
-    <button class="tab" role="tab" data-tab="about" aria-selected="false">About</button>
-    <button class="tab" role="tab" data-tab="contact" aria-selected="false">Contact</button>
+    <button class="tab" role="tab" id="tab-home" aria-controls="panel-home" tabindex="0" data-tab="home" aria-selected="true">Home</button>
+    <button class="tab" role="tab" id="tab-services" aria-controls="panel-services" tabindex="-1" data-tab="services" aria-selected="false">Services</button>
+    <button class="tab" role="tab" id="tab-about" aria-controls="panel-about" tabindex="-1" data-tab="about" aria-selected="false">About</button>
+    <button class="tab" role="tab" id="tab-contact" aria-controls="panel-contact" tabindex="-1" data-tab="contact" aria-selected="false">Contact</button>
   </div>
 </nav>
 
 <!-- ============ HOME ============ -->
-<div class="tabpanel active" id="panel-home" role="tabpanel">
+<div class="tabpanel active" id="panel-home" role="tabpanel" aria-labelledby="tab-home">
   <div class="wrap">
     <div class="hero">
       <h2>Tech headaches and home projects — <span class="accent">handled.</span></h2>
@@ -178,30 +178,30 @@
 </div>
 
 <!-- ============ SERVICES ============ -->
-<div class="tabpanel" id="panel-services" role="tabpanel">
+<div class="tabpanel" id="panel-services" role="tabpanel" aria-labelledby="tab-services">
   <section>
     <div class="wrap">
-      <h3 class="sec">What I Help With</h3>
+      <h2 class="sec">What I Help With</h2>
       <p class="secsub">I pride myself on my range — home technology, smart home, assembly, problem-solving, and plenty in between. If it isn't on this list, ask anyway. If I can't help, I'll tell you who can.</p>
       <div class="cards">
         <div class="card">
           <span class="tag">$50 MIN</span>
-          <h4>Technology Help &amp; Setup</h4>
+          <h3>Technology Help &amp; Setup</h3>
           <p>Complete home technology setup and support. Television and streaming systems configured right, remotes programmed, Alexa and smart assistants integrated, Wi-Fi, printers, phones, and computers — <strong>the details handled properly, everything working together when I leave.</strong></p>
         </div>
         <div class="card">
           <span class="tag">SMART PLANS</span>
-          <h4>Smart Home Setup</h4>
+          <h3>Smart Home Setup</h3>
           <p>Ring and Blink cameras and doorbells, smart plugs, speakers, and connected devices — planned, installed, and working before I leave. <strong>I help you pick the right products and plan the project, so if a licensed electrician is ever needed, you're paying for fewer of their hours — not more.</strong></p>
         </div>
         <div class="card">
           <span class="tag">PROVEN</span>
-          <h4>Assembly &amp; Home Setup</h4>
+          <h3>Assembly &amp; Home Setup</h3>
           <p>Furniture assembly, freestanding shelves and storage, getting new gear working. <strong>I bring proper tools — not the throwaway Allen key in the box — so every screw lands at the right tightness.</strong> You get what you pay for.</p>
           <p class="fine">No permanent wall mounting.</p>
         </div>
         <div class="card">
-          <h4>Problem Solving</h4>
+          <h3>Problem Solving</h3>
           <p>Printer won't connect. New TV still in the box. Furniture waiting months. <strong>"I bought this but don't know where to start."</strong></p>
         </div>
       </div>
@@ -210,10 +210,10 @@
 </div>
 
 <!-- ============ ABOUT ============ -->
-<div class="tabpanel" id="panel-about" role="tabpanel">
+<div class="tabpanel" id="panel-about" role="tabpanel" aria-labelledby="tab-about">
   <section>
     <div class="wrap about">
-      <h3 class="sec">About Kyle</h3>
+      <h2 class="sec">About Kyle</h2>
       <p>I'm <strong>Kyle</strong> — I live in Newmarket, and Lloyd's Local Services is owner-operated. That means you work directly with me: no dispatcher, no rotating crew, no stranger in your house. I show up, I do the work, I answer my own messages.</p>
       <p>I spent eight years in a technical manufacturing environment, which taught me to troubleshoot carefully and sweat the details. Now I put that together with hands-on work — the patience to sit with you until the remote actually works, and the background to make the whole setup behave.</p>
       <p>I'm honest about my limits: if your job needs a licensed trade, I'll tell you straight and point you the right way. What I do take on, I finish properly. I'm a Newmarket dad, and I'd rather earn your next call than oversell this one.</p>
@@ -235,13 +235,13 @@
 </div>
 
 <!-- ============ CONTACT ============ -->
-<div class="tabpanel" id="panel-contact" role="tabpanel">
+<div class="tabpanel" id="panel-contact" role="tabpanel" aria-labelledby="tab-contact">
   <section>
     <div class="wrap">
       <div class="contact" id="contact-box">
-        <h3 class="sec">Need something fixed, installed, or figured out?</h3>
+        <h2 class="sec">Need something fixed, installed, or figured out?</h2>
         <p class="secsub">Tell me what's going on. I'll tell you straight whether I can help and what it'll cost — before anything starts. I reply to every message personally.</p>
-        <div class="thanks" id="thanks">Thanks — your message is on its way. I reply to every message personally, usually within a day.</div>
+        <div class="thanks" id="thanks" role="status">Thanks — your message is on its way. I reply to every message personally, usually within a day.</div>
         <!-- Form backend: FormSubmit (free, no account). Recipient is activated and the public form uses FormSubmit's tokenized endpoint so the destination email is not exposed in page source. -->
         <form id="quote-form" action="https://formsubmit.co/0d410c815b7b36e7825805336ebadf8a" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="_subject" value="New LLS job request">
@@ -269,10 +269,10 @@
           </div>
           <div>
             <label for="f-photo">Photos <span style="font-weight:400">(optional — helps me quote accurately)</span></label>
-            <input id="f-photo" name="photos" type="file" accept="image/*" multiple>
+            <input id="f-photo" name="photos" type="file" accept="image/*" multiple aria-describedby="form-privacy">
           </div>
           <button class="submit" type="submit" id="send-btn">Send Kyle the Problem</button>
-          <p style="font-size:13px;color:var(--muted);text-align:center;margin-top:4px">Sent through FormSubmit to my inbox. No account or mailing list. Photos optional — 10 MB total. Don’t send passwords or sensitive information.</p>
+          <p id="form-privacy" style="font-size:13px;color:var(--muted);text-align:center;margin-top:4px">Sent through FormSubmit to my inbox. No account or mailing list. Photos optional — 10 MB total. Don’t send passwords or sensitive information.</p>
         </form>
         <div class="payrow">
           <p>Already have a quote? Pay your deposit or invoice here.</p>
@@ -301,37 +301,58 @@
     contact: document.getElementById('panel-contact')
   };
   function activate(name, push){
-    if(!panels[name]) name = 'home';
+    if(!Object.prototype.hasOwnProperty.call(panels, name)) name = 'home';
     for(var k in panels){
       panels[k].classList.toggle('active', k === name);
     }
     tabs.forEach(function(t){
-      t.setAttribute('aria-selected', t.dataset.tab === name ? 'true' : 'false');
+      var selected = t.dataset.tab === name;
+      t.setAttribute('aria-selected', selected ? 'true' : 'false');
+      t.tabIndex = selected ? 0 : -1;
     });
     if(push !== false && location.hash !== '#' + name){
-      history.replaceState(null, '', '#' + name);
+      history.pushState(null, '', '#' + name);
     }
     window.scrollTo(0, 0);
-    if(name === 'contact' && location.hash === '#thanks'){
-      document.getElementById('thanks').classList.add('show');
-    }
+    document.getElementById('thanks').classList.toggle('show', name === 'contact' && location.hash === '#thanks');
   }
-  tabs.forEach(function(t){
+  tabs.forEach(function(t, index){
     t.addEventListener('click', function(){ activate(t.dataset.tab); });
+    t.addEventListener('keydown', function(event){
+      var next;
+      if(event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+      else if(event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
+      else if(event.key === 'Home') next = 0;
+      else if(event.key === 'End') next = tabs.length - 1;
+      else return;
+      event.preventDefault();
+      activate(tabs[next].dataset.tab);
+      tabs[next].focus();
+    });
   });
   function fromHash(){
-    var h = location.hash.replace('#','');
-    if(h === 'thanks'){ activate('contact', false); document.getElementById('thanks').classList.add('show'); return; }
-    activate(h || 'home', false);
+    var h = location.hash.slice(1);
+    activate(h === 'thanks' ? 'contact' : (h || 'home'), false);
   }
   window.addEventListener('hashchange', fromHash);
+  window.addEventListener('popstate', fromHash);
   fromHash();
 
   var form = document.getElementById('quote-form');
+  var photo = document.getElementById('f-photo');
   var btn = document.getElementById('send-btn');
+  photo.addEventListener('change', function(){
+    var total = Array.prototype.reduce.call(photo.files, function(sum, file){ return sum + file.size; }, 0);
+    photo.setCustomValidity(total > 10000000 ? 'Please choose photos totaling 10 MB or less.' : '');
+    if(total > 10000000) photo.reportValidity();
+  });
   form.addEventListener('submit', function(){
     btn.disabled = true;
     btn.textContent = 'Sending…';
+  });
+  window.addEventListener('pageshow', function(){
+    btn.disabled = false;
+    btn.textContent = 'Send Kyle the Problem';
   });
 })();
 </script>
