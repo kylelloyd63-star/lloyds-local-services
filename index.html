@@ -76,7 +76,12 @@
   form{display:grid;gap:14px;margin-top:24px}
   label{font-size:14px;font-weight:600;color:var(--muted)}
   input,textarea,select{background:var(--bg);border:1px solid var(--line);border-radius:8px;color:var(--ivory);padding:13px 15px;font-size:16px;width:100%;font-family:inherit}
-  input:focus,textarea:focus{outline:none;border-color:var(--green)}
+  input:focus-visible,textarea:focus-visible{outline:2px solid var(--green-lt);outline-offset:2px;border-color:var(--green)}
+  .btn:focus-visible,.submit:focus-visible{outline:2px solid var(--green-lt);outline-offset:3px}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .btn,.submit{transition:none}
+  }
   textarea{min-height:120px;resize:vertical}
   .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   @media(max-width:560px){.two{grid-template-columns:1fr}}
@@ -107,13 +112,13 @@
     <p class="lede">I'm Kyle. I run Lloyd's Local Services out of Newmarket, NH. I fix the annoying things around the house that sit broken because nobody knows who to call.</p>
     <div class="btnrow">
       <a class="btn btn-primary" href="#contact">Tell Me the Problem</a>
-      <a class="btn btn-ghost" href="#contact">Contact Kyle</a>
+      <a class="btn btn-ghost" href="#services">See What I Do</a>
     </div>
   </div>
 </div>
 
 <!-- 2. what i help with -->
-<section>
+<section id="services">
   <div class="wrap">
     <h3 class="sec">What I Help With</h3>
     <p class="secsub">Four things, done right. If it isn't on this list, ask anyway — if I can't help, I'll tell you who can.</p>
@@ -167,6 +172,7 @@
       <li><strong>Upfront quotes.</strong> You know the price before I start. $50 minimum.</li>
       <li><strong>Honest about limits.</strong> I don't do electrical, plumbing, HVAC, roofing, thermostats, hardwiring, permanent wiring, or permanent wall mounting — and I won't pretend to. If your job needs a licensed trade, I'll tell you straight and point you the right way.</li>
       <li><strong>Small jobs welcome.</strong> The stuff the big pros won't return your call about? That's my lane.</li>
+      <li><strong>You get me.</strong> No dispatchers, no crew lottery, no strangers in your house. You message me — I show up.</li>
     </ul>
   </div>
 </section>
@@ -197,7 +203,7 @@
   <div class="wrap">
     <div class="contact" id="contact">
       <h3 class="sec">Need something fixed, installed, or figured out?</h3>
-      <p class="secsub">Tell me what's going on. I'll let you know if it's something I can help with, what it'll take, and what it should cost — before anything starts.</p>
+      <p class="secsub">Tell me what's going on. I'll let you know if it's something I can help with, what it'll take, and what it should cost — before anything starts. I reply to every message personally.</p>
       <!-- Form backend: FormSubmit (free, no account). First submission triggers an
            activation email to kylelloyd63@gmail.com — Kyle must click it once, then
            every form submit lands in his inbox. -->
@@ -228,6 +234,7 @@
           <input id="f-photo" name="photos" type="file" accept="image/*" multiple>
         </div>
         <button class="submit" type="submit">Send Kyle the Problem</button>
+        <p style="font-size:13px;color:var(--muted);text-align:center;margin-top:4px">Goes straight to my inbox. No account, no mailing list.</p>
       </form>
       <div class="payrow">
         <p>Already have a quote? Pay your deposit or invoice here.</p>
