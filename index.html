@@ -242,10 +242,8 @@
         <h3 class="sec">Need something fixed, installed, or figured out?</h3>
         <p class="secsub">Tell me what's going on. I'll tell you straight whether I can help and what it'll cost — before anything starts. I reply to every message personally.</p>
         <div class="thanks" id="thanks">Thanks — your message is on its way. I reply to every message personally, usually within a day.</div>
-        <!-- Form backend: FormSubmit (free, no account). First submission triggers an
-             activation email to kylelloyd63@gmail.com — Kyle must click it once, then
-             every form submit lands in his inbox. -->
-        <form id="quote-form" action="https://formsubmit.co/kylelloyd63@gmail.com" method="POST" enctype="multipart/form-data">
+        <!-- Form backend: FormSubmit (free, no account). Recipient is activated and the public form uses FormSubmit's tokenized endpoint so the destination email is not exposed in page source. -->
+        <form id="quote-form" action="https://formsubmit.co/9c092843bf94b5b53d694276cc59e00e" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="_subject" value="New LLS job request">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
