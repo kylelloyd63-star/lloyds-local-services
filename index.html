@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lloyd's Local Services — Tech headaches and home projects, handled.</title>
 <meta name="description" content="Lloyd's Local Services — home technology, smart home, assembly, practical problem-solving and project coordination in Newmarket NH, Seacoast NH and southern Maine. Owner-operated. Straight quotes.">
+<link rel="canonical" href="https://lloydslocalservices.com/">
 <style>
   :root{
     --bg:#16181b;
@@ -89,7 +90,7 @@
   .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
   .work-card{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:20px}
   .work-meta{font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--green-tx);margin-bottom:7px}
-  .work-card h3{font-size:17px;line-height:1.3;margin-bottom:6px}
+  .work-card h4{font-size:17px;line-height:1.3;margin-bottom:6px}
   .work-card p{font-size:14px;color:var(--muted)}
 
   /* contact */
@@ -145,11 +146,21 @@
     .btnrow{gap:10px}
     .btnrow .btn{width:100%;max-width:340px}
   }
+  .route-anchor{display:block;position:relative;top:-64px;height:0;visibility:hidden}
+
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
     .btn,.submit,.tabpanel.active{transition:none;animation:none}
   }
 </style>
+<noscript>
+<style>
+  /* no-JS fallback */
+  .tabbar{display:none}
+  .tabpanel{display:block!important}
+  .tabpanel + .tabpanel{border-top:1px solid var(--line)}
+</style>
+</noscript>
 </head>
 <body>
 
@@ -172,8 +183,10 @@
   </div>
 </nav>
 
+<main id="main-content">
 <!-- ============ HOME ============ -->
 <div class="tabpanel active" id="panel-home" role="tabpanel" aria-labelledby="tab-home">
+  <span id="home" class="route-anchor" aria-hidden="true"></span>
   <div class="wrap">
     <div class="hero">
       <h2>Tech headaches and home projects — <span class="accent">handled.</span></h2>
@@ -215,6 +228,7 @@
 
 <!-- ============ SERVICES ============ -->
 <div class="tabpanel" id="panel-services" role="tabpanel" aria-labelledby="tab-services">
+  <span id="services" class="route-anchor" aria-hidden="true"></span>
   <section>
     <div class="wrap">
       <h2 class="sec">What I Help With</h2>
@@ -244,6 +258,7 @@
 
 <!-- ============ ABOUT ============ -->
 <div class="tabpanel" id="panel-about" role="tabpanel" aria-labelledby="tab-about">
+  <span id="about" class="route-anchor" aria-hidden="true"></span>
   <section>
     <div class="wrap about">
       <h2 class="sec">About Kyle</h2>
@@ -261,22 +276,22 @@
       <div class="work-grid">
         <article class="work-card">
           <div class="work-meta">Portsmouth · Assembly</div>
-          <h3>Furniture assembly</h3>
+          <h4>Furniture assembly</h4>
           <p>In-home IKEA ottoman assembly, hardware checked, assembled cleanly, and ready to use.</p>
         </article>
         <article class="work-card">
           <div class="work-meta">Home tech</div>
-          <h3>Printer rescue</h3>
+          <h4>Printer rescue</h4>
           <p>Home printer setup and troubleshooting — printing again the same day.</p>
         </article>
         <article class="work-card">
           <div class="work-meta">Research + sourcing</div>
-          <h3>Product selection before purchase</h3>
+          <h4>Product selection before purchase</h4>
           <p>Researched equipment, compatibility, and available rebate or program options so the client could make a better-informed choice before spending.</p>
         </article>
         <article class="work-card">
           <div class="work-meta">Durham · Ongoing support</div>
-          <h3>Household project support</h3>
+          <h4>Household project support</h4>
           <p>Technology, property projects, product research, vendor sourcing, coordination, and follow-through for a local Durham resident.</p>
         </article>
       </div>
@@ -286,6 +301,7 @@
 
 <!-- ============ CONTACT ============ -->
 <div class="tabpanel" id="panel-contact" role="tabpanel" aria-labelledby="tab-contact">
+  <span id="contact" class="route-anchor" aria-hidden="true"></span>
   <section>
     <div class="wrap">
       <div class="contact" id="contact-box">
@@ -321,7 +337,7 @@
             <input id="f-photo" name="photos" type="file" accept="image/*" multiple aria-describedby="form-privacy">
           </div>
           <button class="submit" type="submit" id="send-btn">Send Kyle the Problem</button>
-          <p id="form-privacy" style="font-size:13px;color:var(--muted);text-align:center;margin-top:4px">Sent through FormSubmit to my inbox. No account or mailing list. Photos optional — 10 MB total. Don’t send passwords or sensitive information.</p>
+          <p id="form-privacy" style="font-size:13px;color:var(--muted);text-align:center;margin-top:4px">Processed by FormSubmit and delivered to my inbox. No account or mailing list. Photos optional — 10 MB total. Don’t send passwords or sensitive information.</p>
         </form>
         <div class="payrow">
           <p>Already have a quote? Pay your deposit or invoice here.</p>
@@ -332,6 +348,8 @@
     </div>
   </section>
 </div>
+
+</main>
 
 <footer>
   <div class="fmark">Lloyd's Local Services</div>
@@ -377,6 +395,15 @@
       event.preventDefault();
       activate(tabs[next].dataset.tab);
       tabs[next].focus();
+    });
+  });
+  document.querySelectorAll('a[href^="#"]').forEach(function(link){
+    link.addEventListener('click', function(event){
+      var name = link.getAttribute('href').slice(1);
+      if(!Object.prototype.hasOwnProperty.call(panels, name)) return;
+      event.preventDefault();
+      activate(name);
+      tabs.forEach(function(t){ if(t.dataset.tab === name) t.focus(); });
     });
   });
   function fromHash(){
