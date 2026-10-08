@@ -1,0 +1,24 @@
+/* LLS approved completed-job photos (opt-in, closed by default).
+   Load only when the site renders owner-approved <details class="work-photo"> content.
+   Matches the site's existing --bg2, --card, --ivory, --muted and --green-lt palette. */
+.work-photo{margin-top:16px}
+.work-photo summary{
+  display:flex;align-items:center;justify-content:center;
+  min-height:44px;padding:10px 16px;border:1px solid var(--input-line);
+  border-radius:8px;background:var(--card);color:var(--ivory);
+  font-size:14px;font-weight:700;cursor:pointer;list-style:none;
+}
+.work-photo summary::-webkit-details-marker{display:none}
+.work-photo summary:hover{border-color:var(--green-lt)}
+.work-photo summary:focus-visible{outline:3px solid #76f2ae;outline-offset:3px}
+.work-photo .photo-hide-label,
+.work-photo[open] .photo-show-label{display:none}
+.work-photo[open] .photo-hide-label{display:inline}
+.work-photo figure{margin:14px 0 0}
+.work-photo img{
+  display:block;width:100%;height:auto;aspect-ratio:16/9;
+  object-fit:cover;border-radius:8px;background:var(--card);
+}
+.work-photo figcaption{
+  padding:8px 0 0;color:var(--muted);font-size:13px;line-height:1.5;
+}
