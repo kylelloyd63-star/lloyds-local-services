@@ -14,11 +14,13 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
 
       - name: Run Ops Drift Gate
         id: ops_gate
         continue-on-error: true
-        uses: kylelloyd63-star/ops-drift-gate@v0.1.1
+        uses: kylelloyd63-star/ops-drift-gate@2bef6898682cf53a8d716dd982114393ed346922 # v0.1.1
         with:
           path: .
           fail_on_undocumented: "false"
@@ -31,11 +33,11 @@ jobs:
           {
             echo "### Ops Drift Gate read-only audit"
             echo
-            echo "- Action outcome: `${{ steps.ops_gate.outcome }}`"
-            echo "- Gate status: `${{ steps.ops_gate.outputs.status }}`"
-            echo "- Complete scan: `${{ steps.ops_gate.outputs.complete }}`"
-            echo "- Undocumented providers: `${{ steps.ops_gate.outputs.undocumented_count }}`"
-            echo "- Unknown custody: `${{ steps.ops_gate.outputs.unknown_custody_count }}`"
+            echo "- Action outcome: ${{ steps.ops_gate.outcome }}"
+            echo "- Gate status: ${{ steps.ops_gate.outputs.status }}"
+            echo "- Complete scan: ${{ steps.ops_gate.outputs.complete }}"
+            echo "- Undocumented providers: ${{ steps.ops_gate.outputs.undocumented_count }}"
+            echo "- Unknown custody: ${{ steps.ops_gate.outputs.unknown_custody_count }}"
             echo
             echo "Informational only: undocumented dependencies and custody gaps do not fail this workflow."
           } >> "$GITHUB_STEP_SUMMARY"
