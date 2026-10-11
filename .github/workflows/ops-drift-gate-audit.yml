@@ -1,0 +1,41 @@
+name: Ops Drift Gate read-only audit
+
+on:
+  workflow_dispatch:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+
+      - name: Run Ops Drift Gate
+        id: ops_gate
+        continue-on-error: true
+        uses: kylelloyd63-star/ops-drift-gate@v0.1.1
+        with:
+          path: .
+          fail_on_undocumented: "false"
+          require_custody: "false"
+
+      - name: Record audit result
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo "### Ops Drift Gate read-only audit"
+            echo
+            echo "- Action outcome: `${{ steps.ops_gate.outcome }}`"
+            echo "- Gate status: `${{ steps.ops_gate.outputs.status }}`"
+            echo "- Complete scan: `${{ steps.ops_gate.outputs.complete }}`"
+            echo "- Undocumented providers: `${{ steps.ops_gate.outputs.undocumented_count }}`"
+            echo "- Unknown custody: `${{ steps.ops_gate.outputs.unknown_custody_count }}`"
+            echo
+            echo "Informational only: undocumented dependencies and custody gaps do not fail this workflow."
+          } >> "$GITHUB_STEP_SUMMARY"
