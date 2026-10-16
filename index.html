@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; form-action https://formsubmit.co; object-src 'none'; base-uri 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Lloyd's Local Services — Tech headaches and home projects, handled.</title>
 <meta name="description" content="Lloyd's Local Services — home technology, smart home, troubleshooting, product research, project coordination, and selected assembly in Newmarket NH, Seacoast NH and southern Maine. Owner-operated. Straight quotes.">
 <link rel="canonical" href="https://lloydslocalservices.com/">
@@ -23,6 +25,7 @@
 <meta name="twitter:title" content="Lloyd's Local Services — Tech headaches and home projects, handled.">
 <meta name="twitter:description" content="Lloyd's Local Services — home technology, smart home, troubleshooting, product research, project coordination, and selected assembly in Newmarket NH, Seacoast NH and southern Maine. Owner-operated. Straight quotes.">
 <meta name="twitter:image" content="https://lloydslocalservices.com/og-image.png">
+<meta name="twitter:image:alt" content="Lloyd's Local Services — Newmarket NH">
 <meta name="theme-color" content="#16181b">
 
 <style>
@@ -44,6 +47,8 @@
   html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--ivory);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
   .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  .skip-link{position:fixed;top:8px;left:8px;z-index:100;transform:translateY(-150%);background:var(--ivory);color:var(--bg);padding:10px 14px;border-radius:6px;font-weight:700}
+  .skip-link:focus{transform:translateY(0)}
 
   /* wordmark */
   .wordmark{text-align:center;padding:34px 0 20px}
@@ -184,6 +189,8 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
 <!-- wordmark -->
 <div class="wrap">
   <div class="wordmark">
@@ -203,7 +210,7 @@
   </div>
 </nav>
 
-<main id="main-content">
+<main id="main-content" tabindex="-1">
 <!-- ============ HOME ============ -->
 <div class="tabpanel active" id="panel-home" role="tabpanel" aria-labelledby="tab-home">
   <span id="home" class="route-anchor" aria-hidden="true"></span>
