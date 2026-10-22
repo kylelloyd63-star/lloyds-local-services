@@ -24,6 +24,66 @@
 <meta name="twitter:description" content="Lloyd's Local Services — home technology, smart home, troubleshooting, product research, project coordination, and selected assembly in Newmarket NH, Seacoast NH and southern Maine. Owner-operated. Straight quotes.">
 <meta name="twitter:image" content="https://lloydslocalservices.com/og-image.png">
 <meta name="theme-color" content="#16181b">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Lloyd's Local Services",
+  "url": "https://lloydslocalservices.com/",
+  "description": "Lloyd's Local Services — home technology, smart home, troubleshooting, product research, project coordination, and selected assembly in Newmarket NH, Seacoast NH and southern Maine. Owner-operated. Straight quotes.",
+  "image": "https://lloydslocalservices.com/og-image.png",
+  "logo": "https://lloydslocalservices.com/apple-touch-icon.png",
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Newmarket",
+      "containedInPlace": { "@type": "State", "name": "New Hampshire" }
+    },
+    {
+      "@type": "City",
+      "name": "Portsmouth",
+      "containedInPlace": { "@type": "State", "name": "New Hampshire" }
+    },
+    {
+      "@type": "City",
+      "name": "Dover",
+      "containedInPlace": { "@type": "State", "name": "New Hampshire" }
+    },
+    {
+      "@type": "City",
+      "name": "Exeter",
+      "containedInPlace": { "@type": "State", "name": "New Hampshire" }
+    },
+    {
+      "@type": "City",
+      "name": "Durham",
+      "containedInPlace": { "@type": "State", "name": "New Hampshire" }
+    },
+    {
+      "@type": "City",
+      "name": "Kittery",
+      "containedInPlace": { "@type": "State", "name": "Maine" }
+    },
+    {
+      "@type": "City",
+      "name": "York",
+      "containedInPlace": { "@type": "State", "name": "Maine" }
+    },
+    "Seacoast NH",
+    "southern Maine"
+  ],
+  "priceRange": "Simple calls start at $50",
+  "makesOffer": {
+    "@type": "Offer",
+    "description": "Simple calls start at $50. Bigger or more technical work gets a straight quote before the work begins.",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "minPrice": 50,
+      "priceCurrency": "USD"
+    }
+  }
+}
+</script>
 
 <style>
   :root{
@@ -46,9 +106,10 @@
   .wrap{max-width:960px;margin:0 auto;padding:0 24px}
 
   /* wordmark */
-  .wordmark{text-align:center;padding:34px 0 20px}
+  .wordmark{text-align:center;padding:34px 0 20px;position:relative}
   .wordmark .ll{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:1.5px solid var(--green);border-radius:8px;color:var(--green-lt);font-weight:800;font-size:14px;letter-spacing:1px;margin-bottom:10px}
   .wordmark h1{font-size:30px;letter-spacing:.5px;font-weight:800;line-height:1.2}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0}
   .wordmark .sub{font-size:12px;letter-spacing:5px;color:var(--muted);font-weight:600;margin-top:6px}
 
   /* tabs */
@@ -190,8 +251,8 @@
 <div class="wrap">
   <div class="wordmark">
     <div class="ll">LL</div>
-    <h1>Lloyd's</h1>
-    <div class="sub">LOCAL SERVICES</div>
+    <h1>Lloyd's<span class="sr-only"> Local Services, tech help in Newmarket &amp; the Seacoast NH</span></h1>
+    <div class="sub" aria-hidden="true">LOCAL SERVICES</div>
   </div>
 </div>
 
