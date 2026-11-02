@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SourceToMe Privacy Policy</title>
+<meta name="description" content="Privacy policy for the SourceToMe Windows app. Works fully offline by default; optional Cloud AI with your own key is off until you turn it on.">
+<style>
+:root{color-scheme:light dark;--bg:#fbfaf6;--fg:#1d211c;--muted:#5b6258;--line:#dfe2d8;--accent:#2f5d3a}
+@media (prefers-color-scheme:dark){:root{--bg:#151a15;--fg:#e8ebe3;--muted:#a5ad9f;--line:#2c3429;--accent:#9fd1a9}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+main{max-width:46rem;margin:0 auto;padding:3rem 1.25rem 4rem}
+h1{font-size:2rem;line-height:1.2;margin:0 0 .25rem}
+h2{font-size:1.2rem;margin:2.2rem 0 .5rem;padding-top:1.2rem;border-top:1px solid var(--line);color:var(--accent)}
+p,li{margin:.5rem 0}
+ul{padding-left:1.3rem}
+.date{color:var(--muted);margin-bottom:2rem}
+strong{font-weight:600}
+footer{margin-top:3rem;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);padding-top:1rem}
+</style>
+</head>
+<body>
+<main>
+<h1>SourceToMe Privacy Policy</h1>
+<p class="date">Effective date: November 2, 2026</p>
+<p>This policy covers the SourceToMe app for Windows, sold through the Microsoft Store.</p>
+<h2>The short version</h2>
+<ul>
+  <li>SourceToMe works fully offline by default. Your files, your library and your questions stay on your PC.</li>
+  <li>Cloud AI is optional and <strong>off until you turn it on</strong>. It uses your own OpenAI API key, or an OpenAI-compatible endpoint you choose.</li>
+  <li>We have no telemetry, no analytics, no ads and no servers that receive your data.</li>
+</ul>
+<h2>What stays on your PC</h2>
+<p>The documents you add, the library database, the search index and your settings are stored on your PC, in your Windows user profile. The search model ships inside the app. Search, cited answers, the AI-answer check, the refusal test and "Prove it's offline" all run on your PC and send nothing over the internet.</p>
+<p>The app's interface is served only to your own PC, on the local address 127.0.0.1. It does not accept connections from other computers.</p>
+<h2>Optional Cloud AI (off by default)</h2>
+<p>Cloud AI writes a plain-language answer from passages SourceToMe has already found in your library. It is off on new installs and stays off after updates. While it is off, SourceToMe makes no AI requests at all.</p>
+<p>To use it, you switch on <strong>Cloud AI</strong> in Settings and give it either:</p>
+<ul>
+  <li>your own OpenAI API key (requests go to OpenAI, at api.openai.com), or</li>
+  <li>the address of an OpenAI-compatible endpoint you choose, such as a server on your own PC or network (requests go to that endpoint).</li>
+</ul>
+<p>Even with Cloud AI on, nothing is sent until you ask for a written answer. Before each request, SourceToMe shows you exactly what will be sent and asks you to approve it. You can choose "Always allow this session"; that approval ends when you close the app.</p>
+<p><strong>What is sent, and to whom.</strong> Each approved request sends only:</p>
+<ul>
+  <li>your question;</li>
+  <li>the passages SourceToMe selected for it: each passage's title, section, page and text;</li>
+  <li>a short coverage label that says how strong the evidence is.</li>
+</ul>
+<p>It goes to OpenAI or to the endpoint you entered, and nowhere else. Nothing else from your library is sent: not your other documents, not your file names or folders, not your settings. What that provider does with the data is governed by its own terms and privacy policy, not this one. Any charges from the provider are between you and them.</p>
+<p>Answers written by Cloud AI are labeled "Cloud AI" and must cite your own passages. An answer that does not is not shown.</p>
+<p>You can switch Cloud AI off at any time in Settings.</p>
+<h2>Your API key</h2>
+<p>If you enter an API key in the app, it is stored only on your PC, protected with Windows data protection (DPAPI) so that only your Windows user account can read it. It is never saved in plain text, never written to logs and never stored in your library. The app shows it masked (for example "sk-…AB12"). <strong>Remove key</strong> in Settings deletes it from your PC.</p>
+<p>We never receive your key.</p>
+<h2>Add from link</h2>
+<p>If you use <strong>Add from link</strong>, SourceToMe downloads the web page at the address you enter, once, and saves a copy in your library. This uses the internet and contacts that website, which will see an ordinary request from your PC. It works the same whether Cloud AI is on or off, and it only happens when you use it.</p>
+<h2>No telemetry, no analytics</h2>
+<p>SourceToMe has no telemetry, no usage analytics, no crash reporting to us, no advertising and no tracking. It loads no remote fonts or scripts. We do not run any server that receives your documents, questions, answers or keys.</p>
+<h2>Purchases</h2>
+<p>SourceToMe is bought through the Microsoft Store. Microsoft handles payment, the free trial and licensing under its own terms and privacy statement. We do not receive your payment details.</p>
+<h2>Children</h2>
+<p>SourceToMe is not directed at children and does not knowingly collect information from anyone.</p>
+<h2>Deleting your data</h2>
+<p>Your data is on your PC, so you control it. Manage your documents in the app's Library, and use <strong>Remove key</strong> to delete a stored API key. The library is kept in the SourceToMe folder in your Windows user profile (%LOCALAPPDATA%\SourceToMe). Uninstalling the app may leave that folder in place so an update or reinstall keeps your library; delete the folder to remove everything.</p>
+<h2>Changes to this policy</h2>
+<p>If this policy changes, the new version will be posted at this address with a new effective date.</p>
+<h2>Contact</h2>
+<p>Questions about this policy: [contact email]</p>
+<footer>SourceToMe Privacy Policy &middot; https://lloydslocalservices.com/sourcetome-privacy.html</footer>
+</main>
+</body>
+</html>
